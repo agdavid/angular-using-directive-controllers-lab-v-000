@@ -20,11 +20,15 @@ function ContactCard() {
 			'</div>'
 		].join(''),
 		restrict: 'E',
-		controller: function($scope) {
-			$scope.username = $scope.username.toLowerCase();
-		}
+		controller: lowerCaseController
 	};
 }
+
+var lowerCaseController = function($scope) {
+			//this $scope refers to a 'contact' in ContactController.contacts 
+			//and not the parent scope of ContactController
+			$scope.username = $scope.username.toLowerCase();
+		};
 
 angular
 	.module('app')
